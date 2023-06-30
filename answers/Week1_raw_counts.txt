@@ -1,0 +1,8 @@
+The table [bike_data] has 47168308 rows
+The table [central_park_weather] has 2984 rows
+The table [daily_citi_bike_trip_counts_and_weather] has 883 rows
+The table [fhv_bases] has 1098 rows
+The table [fhv_tripdata] has 29750730 rows
+The table [fhvhv_tripdata] has 317906523 rows
+The table [green_tripdata] has 2802931 rows
+The table [yellow_tripdata] has 55553400 rows

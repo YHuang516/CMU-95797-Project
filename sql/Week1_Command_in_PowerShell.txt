@@ -1,0 +1,8 @@
+# By Yuli Huang, Start 06/29/2023
+
+# run the script in raw_data folder with duckdb
+# run data loading script:
+Get-Content .\Week1_Ingest.sql | .\duckdb NYC_Transit_Data_Sets.db
+
+# run schemas checking script:
+Get-Content .\Week1_raw_data_schemas.sql | .\duckdb NYC_Transit_Data_Sets.db
