@@ -1,0 +1,26 @@
+sources:
+  - name: main
+    tables:
+      - name: bike_data
+        columns:
+
+      - name: central_park_weather
+        columns:
+
+      - name: daily_citi_bike_trip_counts_and_weather
+        columns:
+
+      - name: fhv_bases
+        columns:
+
+      - name: fhv_tripdata
+        columns:
+
+      - name: fhvhv_tripdata
+        columns:
+
+      - name: green_tripdata
+        columns:
+
+      - name: yellow_tripdata
+        columns:
