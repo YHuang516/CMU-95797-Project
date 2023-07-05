@@ -12,7 +12,7 @@ CREATE TABLE central_park_weather AS SELECT * FROM read_csv_auto('.\data\central
 CREATE TABLE daily_citi_bike_trip_counts_and_weather AS SELECT * FROM read_csv_auto('.\data\daily_citi_bike_trip_counts_and_weather.csv', all_varchar=1, filename=True);
 
 --Read data from fhv_bases file
-CREATE TABLE fhv_bases AS SELECT * FROM read_csv_auto('.\data\fhv_bases.csv', all_varchar=1, filename=True);
+CREATE TABLE fhv_bases AS SELECT * FROM read_csv_auto('.\data\fhv_bases.csv', all_varchar=1, filename=True, header=True);
 
 --Read data from fhv_tripdata files, fhvhv_tripdata files, green_tripdata files, yellow_tripdata files in /taxi folder
 --Use union_by_name in case there's data format inconsistency
