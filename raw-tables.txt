@@ -57,10 +57,10 @@ table: daily_citi_bike_trip_counts_and_weather
     column: weekday_non_holiday
     column: filename
 table: fhv_bases
-    column: column0
-    column: column1
-    column: column2
-    column: column3
+    column: base_number
+    column: base_name
+    column: dba
+    column: dba_category
     column: filename
 table: fhv_tripdata
     column: dispatching_base_num
