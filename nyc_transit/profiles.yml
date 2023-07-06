@@ -2,5 +2,5 @@ default:
   outputs:
    dev:
      type: duckdb
-     path: C:\CMU\2023_S2\95797_DataWarehousing\Class_Project\Data_Raw\NYC_Transit_Data_Sets.db
+     path: C:\CMU\2023_S2\95797_DataWarehousing\Class_Project\Data_Raw\nyc_transit_data_sets.db
   target: dev
