@@ -1,0 +1,40 @@
+Week 2
+Important Issues during the work:
+
+1. remove duplicate rows: 
+	I could do most of the tables easily with select distinct *, however, for bike_data and fhvhv_tripdata, the data is too big,
+	Exeeding my PC's RAM.
+	for bike_data, new data after 2021-02 does not have duplicate (every ride_ID is unique, total 26566105 unique rows); 
+	old data before 2021-02, I use another way to check:(bikeid, starttime, stoptime) as PK, there are no duplicate as well (every PK is unique, total 20602203 unique rows);
+	There are total 47168308 unique rows, which is the total row counts of the bike_data table. This one does not need to eliminate duplicate!
+	However, for fhvhv_tripdata, I have difficulties to figure out what is the PK. If I have PK, there's a way I may be able to eliminate the duplicate with smaller query:
+	Let's say that I have A,B,C,D as PK, I could first create a new temporary table with an addiitonal 'rn' column, which will contain row numbers partitioned by A-D:
+		CREATE TEMPORARY TABLE temp_tbl AS
+		SELECT *, ROW_NUMBER() OVER (PARTITION BY A,B,C,D ORDER BY A) as rn
+		FROM fhvhv_tripdata
+	Then, I could create a new table that eliminate all the duplications by:
+		SELECT TABLE deduplicated_fhvhv_tripdata AS
+		SELECT A,B,C,D, and all other columns
+		FROM temp_tbl
+		WHERE rn = 1;
+	Still, 300M rows are quite large, I'm not sure if my method will work.
+	
+2. remove garbage records:
+	in my Week2_Table_Clean_Documentation, I give reason why I kept some of the "unreasonable" records,
+	It is easy to drop them next week after discussion.
+	For example:
+	In Bike_Data:
+	birth year:     may not be correct, the oldest people alive now is born in 1907, considering similar in 2020-2022;
+					Actually, there are 8932 rows with birth year smaller than 1907! there are 10776 rows with birth year smaller than 1920 (100 year old ride a bike in NYC!)
+					I'll keep this issue marked here without droping any rows before further discussion.
+	the station id: integer before 2021/02, mostly 2 decimal double after 2021/02 with several outlier, 
+					especially one start/end_station_id is the same as station name:(S 5th St & Kent Ave (Domino Park Movie Shoot));
+					rows with that station_id looks good, assuming that is a special event using the bike without normal station. Keep those data for now.
+	In fhvhv_tripdata:
+	base_passenger_fare: There are quite a lot (366697) of negative value, why? Keep it there for now until finding out reason;
+	driver_pay: There are quite a lot (12808) of netative value, why? Keep it there for now until finding out reason;
+	In green_tripdata and yellow_tripdata
+	fare_amount: There are negative value, but none from negative trip_distance. Keep for now since I'm not sure the meaning (refund?)
+	total amount: There are negative value, most are affiliated with negative fare_amount. Since I keep netative fare_amount, keep this as well.
+	
+						
