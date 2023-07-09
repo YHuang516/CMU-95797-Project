@@ -1,0 +1,416 @@
+summarize bike_data;
+┌─────────────────────────┬─────────────┬─────────────────────────────────────────────┬─────────────────────────────────────────────┬───────────────┬───────┬───────┬───────┬───────┬───────┬──────────┬─────────────────┐
+│       column_name       │ column_type │                     min                     │                     max                     │ approx_unique │  avg  │  std  │  q25  │  q50  │  q75  │  count   │ null_percentage │
+│         varchar         │   varchar   │                   varchar                   │                   varchar                   │    varchar    │ int32 │ int32 │ int32 │ int32 │ int32 │  int64   │     varchar     │
+├─────────────────────────┼─────────────┼─────────────────────────────────────────────┼─────────────────────────────────────────────┼───────────────┼───────┼───────┼───────┼───────┼───────┼──────────┼─────────────────┤
+│ tripduration            │ VARCHAR     │ 100                                         │ 9999                                        │ 44449         │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ starttime               │ VARCHAR     │ 2020-01-01 00:00:55.3900                    │ 2021-01-31 23:59:40.4440                    │ 21106002      │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ stoptime                │ VARCHAR     │ 2020-01-01 00:05:29.2050                    │ 2021-02-08 09:11:05.9440                    │ 20264126      │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ start station id        │ VARCHAR     │ 116                                         │ 83                                          │ 1256          │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ start station name      │ VARCHAR     │ 1 Ave & E 110 St                            │ Yankee Ferry Terminal                       │ 1266          │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ start station latitude  │ VARCHAR     │ 40.644512                                   │ 40.852252                                   │ 1325          │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ start station longitude │ VARCHAR     │ -73.884308                                  │ -74.02535319328308                          │ 1307          │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ end station id          │ VARCHAR     │ 116                                         │ 83                                          │ 1292          │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ end station name        │ VARCHAR     │ 1 Ave & E 110 St                            │ York St                                     │ 1295          │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ end station latitude    │ VARCHAR     │ 40.644512                                   │ 40.852252                                   │ 1361          │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ end station longitude   │ VARCHAR     │ -73.884308                                  │ -74.07145500183105                          │ 1340          │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ bikeid                  │ VARCHAR     │ 14529                                       │ 50124                                       │ 25171         │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ usertype                │ VARCHAR     │ Customer                                    │ Subscriber                                  │ 2             │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ birth year              │ VARCHAR     │ 1866                                        │ 2005                                        │ 120           │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ gender                  │ VARCHAR     │ 0                                           │ 2                                           │ 3             │       │       │       │       │       │ 47168308 │ 56.32%          │
+│ ride_id                 │ VARCHAR     │ 000001291A7A9778                            │ FFFFFFDACD93D87C                            │ 26474628      │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ rideable_type           │ VARCHAR     │ classic_bike                                │ electric_bike                               │ 3             │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ started_at              │ VARCHAR     │ 2021-02-01 00:04:23                         │ 2021-12-31 23:59:46                         │ 14094628      │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ ended_at                │ VARCHAR     │ 2021-02-01 00:09:27                         │ 2022-03-22 21:18:27                         │ 13952908      │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ start_station_name      │ VARCHAR     │ 1 Ave & E 110 St                            │ Yankee Ferry Terminal                       │ 1557          │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ start_station_id        │ VARCHAR     │ 2733.03                                     │ SYS052                                      │ 1520          │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ end_station_name        │ VARCHAR     │ 1 Ave & E 110 St                            │ York St                                     │ 1629          │       │       │       │       │       │ 47168308 │ 43.88%          │
+│ end_station_id          │ VARCHAR     │ 2733.03                                     │ SYS052                                      │ 1591          │       │       │       │       │       │ 47168308 │ 43.88%          │
+│ start_lat               │ VARCHAR     │ 40.604017                                   │ 40.88226                                    │ 2662          │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ start_lng               │ VARCHAR     │ -73.88145                                   │ -74.03571                                   │ 2679          │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ end_lat                 │ VARCHAR     │ 40.604017                                   │ 40.88226                                    │ 2424          │       │       │       │       │       │ 47168308 │ 43.81%          │
+│ end_lng                 │ VARCHAR     │ -73.88                                      │ -74.0836394                                 │ 2421          │       │       │       │       │       │ 47168308 │ 43.81%          │
+│ member_casual           │ VARCHAR     │ casual                                      │ member                                      │ 2             │       │       │       │       │       │ 47168308 │ 43.68%          │
+│ filename                │ VARCHAR     │ .\data\bike\202001-citibike-tripdata.csv.gz │ .\data\bike\202112-citibike-tripdata.csv.gz │ 24            │       │       │       │       │       │ 47168308 │ 0.0%            │
+├─────────────────────────┴─────────────┴─────────────────────────────────────────────┴─────────────────────────────────────────────┴───────────────┴───────┴───────┴───────┴───────┴───────┴──────────┴─────────────────┤
+│ 29 rows                                                                                                                                                                                                     12 columns │
+└────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Merge Columns Pairs (10x2) / final name / data type :
+	starttime		started_at	/ started_at / timestamp
+	stoptime		ended_at	/ ended_at   / timestamp
+	start station id	start_station_id	/ start_station_id  /  VARCHAR
+	start station name	start_station_name	/ start_station_name/  VARCHAR
+	start station latitude	start_lat		/ start_lat			/  double
+	start station longitude	start_lng		/ start_lng			/  double
+	end station id		end_station_id		/ end_station_id	/  VARCHAR
+	end station name	end_station_name	/ end_station_name	/  VARCHAR
+	end station latitude 	end_lat			/ end_lat			/  double
+	end station_longtitude	end_lng			/ end_lng			/  double
+	usertype		member_casual			/ user_type			/  VARCHAR
+	
+Other Columns (9) / final name  / data type :
+	tripduration	/ tripduration /	int			# in second
+	bike_id			/ bike_id / 	int
+	usertype		/ usertype	/ VARCHAR
+	birth year		/ birth year /	int
+	gender			/ gender / 	int
+	ride_id			/ ride_id /   VARCHAR
+	rideable_type	/ rideable_type /	VARCHAR
+	member_casual	/ member_casual	/	VARCHAR
+	filename		/ filename /	VARCHAR
+	
+Issues to address:
+	tripduration = (ended_at - statrted_at) in seconds. Unlike taxi, people may pick-up a bike but drop it quickly, maybe they were unhappy with the bike;
+					very short tripduration may reflect some information. I would not drop any "short tripduration" row for now
+	birth year may not be correct, the oldest people alive now is born in 1907, considering similar in 2020-2022;
+					Actually, there are 8932 rows with birth year smaller than 1907! there are 10776 rows with birth year smaller than 1920 (100 year old ride a bike in NYC!)
+					I'll keep this issue marked here without droping any rows before further discussion.
+	the station id: integer before 2021/02, mostly 2 decimal double after 2021/02 with several outlier, 
+					especially one start/end_station_id is the same as station name:(S 5th St & Kent Ave (Domino Park Movie Shoot));
+					rows with that station_id looks good, assuming that is a special event using the bike without normal station. Keep those data for now.
+					
+	
+
+summarize central_park_weather;
+┌─────────────┬─────────────┬─────────────────────────────────┬─────────────────────────────────┬───────────────┬───────┬───────┬───────┬───────┬───────┬───────┬─────────────────┐
+│ column_name │ column_type │               min               │               max               │ approx_unique │  avg  │  std  │  q25  │  q50  │  q75  │ count │ null_percentage │
+│   varchar   │   varchar   │             varchar             │             varchar             │    varchar    │ int32 │ int32 │ int32 │ int32 │ int32 │ int64 │     varchar     │
+├─────────────┼─────────────┼─────────────────────────────────┼─────────────────────────────────┼───────────────┼───────┼───────┼───────┼───────┼───────┼───────┼─────────────────┤
+│ STATION     │ VARCHAR     │ USW00094728                     │ USW00094728                     │ 1             │       │       │       │       │       │  2984 │ 0.0%            │
+│ NAME        │ VARCHAR     │ NY CITY CENTRAL PARK, NY US     │ NY CITY CENTRAL PARK, NY US     │ 1             │       │       │       │       │       │  2984 │ 0.0%            │
+│ DATE        │ VARCHAR     │ 2013-07-01                      │ 2021-08-31                      │ 2973          │       │       │       │       │       │  2984 │ 0.0%            │
+│ AWND        │ VARCHAR     │ 0.00                            │ 9.84                            │ 67            │       │       │       │       │       │  2984 │ 6.8%            │
+│ PRCP        │ VARCHAR     │ 0.00                            │ 4.97                            │ 174           │       │       │       │       │       │  2984 │ 0.0%            │
+│ SNOW        │ VARCHAR     │ 0.0                             │ 9.8                             │ 46            │       │       │       │       │       │  2984 │ 0.03%           │
+│ SNWD        │ VARCHAR     │ 0.0                             │ 9.8                             │ 22            │       │       │       │       │       │  2984 │ 0.0%            │
+│ TMAX        │ VARCHAR     │ 13                              │ 98                              │ 86            │       │       │       │       │       │  2984 │ 0.0%            │
+│ TMIN        │ VARCHAR     │ -1                              │ 9                               │ 83            │       │       │       │       │       │  2984 │ 0.0%            │
+│ filename    │ VARCHAR     │ .\data\central_park_weather.csv │ .\data\central_park_weather.csv │ 1             │       │       │       │       │       │  2984 │ 0.0%            │
+├─────────────┴─────────────┴─────────────────────────────────┴─────────────────────────────────┴───────────────┴───────┴───────┴───────┴───────┴───────┴───────┴─────────────────┤
+│ 10 rows                                                                                                                                                              12 columns │
+└─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Columns / final name / data type :
+	STATION	/	STATION	/ VARCHAR
+	NAME	/	NAME	/ VARCHAR
+	DATE	/ 	DATE	/ DATE
+	AWND	/	AWND	/ double		#Average Wind Speed
+	PRCP	/	PRCP	/ double		#Precipitation
+	SNOW	/	SNOW	/ double		#Snowfall
+	SNWD	/	SNWD	/ double		#Snow Depth
+	TMAX	/ 	TMAX	/ int			#max temperature in F
+	TMIN	/	TMIN	/ int			#min temperature in F
+	filename/	filename/ VARCHAR
+	
+Issues to address:
+	this table is in good shape, only need to convert data type
+	No duplicate and null in DATE (important!)
+
+
+summarize daily_citi_bike_trip_counts_and_weather;
+┌─────────────────────┬─────────────┬────────────────────────────────────────────────────┬────────────────────────────────────────────────────┬───────────────┬───────┬───────┬───────┬───────┬───────┬───────┬─────────────────┐
+│     column_name     │ column_type │                        min                         │                        max                         │ approx_unique │  avg  │  std  │  q25  │  q50  │  q75  │ count │ null_percentage │
+│       varchar       │   varchar   │                      varchar                       │                      varchar                       │    varchar    │ int32 │ int32 │ int32 │ int32 │ int32 │ int64 │     varchar     │
+├─────────────────────┼─────────────┼────────────────────────────────────────────────────┼────────────────────────────────────────────────────┼───────────────┼───────┼───────┼───────┼───────┼───────┼───────┼─────────────────┤
+│ date                │ VARCHAR     │ 2013-07-01                                         │ 2015-11-30                                         │ 867           │       │       │       │       │       │   883 │ 0.0%            │
+│ trips               │ VARCHAR     │ 10021                                              │ 9999                                               │ 866           │       │       │       │       │       │   883 │ 0.0%            │
+│ precipitation       │ VARCHAR     │ 0                                                  │ 4.9685                                             │ 97            │       │       │       │       │       │   883 │ 0.0%            │
+│ snow_depth          │ VARCHAR     │ 0                                                  │ 9.84252                                            │ 21            │       │       │       │       │       │   883 │ 0.0%            │
+│ snowfall            │ VARCHAR     │ 0                                                  │ 9.48819                                            │ 28            │       │       │       │       │       │   883 │ 0.0%            │
+│ max_temperature     │ VARCHAR     │ 17.24                                              │ 98.06                                              │ 81            │       │       │       │       │       │   883 │ 0.0%            │
+│ min_temperature     │ VARCHAR     │ 10.22                                              │ 9.14                                               │ 80            │       │       │       │       │       │   883 │ 0.0%            │
+│ average_wind_speed  │ VARCHAR     │ 0.671081                                           │ NA                                                 │ 57            │       │       │       │       │       │   883 │ 0.0%            │
+│ dow                 │ VARCHAR     │ 0                                                  │ 6                                                  │ 7             │       │       │       │       │       │   883 │ 0.0%            │
+│ year                │ VARCHAR     │ 2013                                               │ 2015                                               │ 3             │       │       │       │       │       │   883 │ 0.0%            │
+│ month               │ VARCHAR     │ 1                                                  │ 9                                                  │ 12            │       │       │       │       │       │   883 │ 0.0%            │
+│ holiday             │ VARCHAR     │ FALSE                                              │ TRUE                                               │ 2             │       │       │       │       │       │   883 │ 0.0%            │
+│ stations_in_service │ VARCHAR     │ 324                                                │ NA                                                 │ 70            │       │       │       │       │       │   883 │ 0.0%            │
+│ weekday             │ VARCHAR     │ FALSE                                              │ TRUE                                               │ 2             │       │       │       │       │       │   883 │ 0.0%            │
+│ weekday_non_holiday │ VARCHAR     │ FALSE                                              │ TRUE                                               │ 2             │       │       │       │       │       │   883 │ 0.0%            │
+│ filename            │ VARCHAR     │ .\data\daily_citi_bike_trip_counts_and_weather.csv │ .\data\daily_citi_bike_trip_counts_and_weather.csv │ 1             │       │       │       │       │       │   883 │ 0.0%            │
+├─────────────────────┴─────────────┴────────────────────────────────────────────────────┴────────────────────────────────────────────────────┴───────────────┴───────┴───────┴───────┴───────┴───────┴───────┴─────────────────┤
+│ 16 rows                                                                                                                                                                                                            12 columns │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Columns / final name / data type :
+	date	/	date	/	DATE
+	trips	/	trips	/	int
+	precipitation	/	precipitation	/	double
+	snow_depth	/	snow_depth	/	double
+	snowfall	/	snowfall	/	double
+	max_temperature	/	max_temperature	/	double
+	min_temperature	/	min_temperature	/	double
+	average_wind_speed	/	average_wind_speed	/ double	#transfer NA to Null or blank
+	dow	/ dow / int											#day of the week
+	year / year / int
+	month / month / int
+	holiday	/ holiday / BOOLEAN
+	stations_in_service	/	stations_in_service	/ int		#transfer NA to Null or blank
+	weekday	/ weekday	/  BOOLEAN
+	weekday_non_holiday	/ weekday_non_holiday	/ BOOLEAN
+	filename / filename / VARCHAR
+	
+Issues to address:
+	this table is in good shape, only need to convert data type and deal with a few NA to Null transfer
+	No duplicate and null in DATE (important!)
+	Weather data in both this table and "central_park_weather" table, not sure if they are from same location, no duplication check for now
+	
+
+
+summarize fhv_bases;
+┌──────────────┬─────────────┬───────────────────────────────┬──────────────────────┬───────────────┬───────┬───────┬───────┬───────┬───────┬───────┬─────────────────┐
+│ column_name  │ column_type │              min              │         max          │ approx_unique │  avg  │  std  │  q25  │  q50  │  q75  │ count │ null_percentage │
+│   varchar    │   varchar   │            varchar            │       varchar        │    varchar    │ int32 │ int32 │ int32 │ int32 │ int32 │ int64 │     varchar     │
+├──────────────┼─────────────┼───────────────────────────────┼──────────────────────┼───────────────┼───────┼───────┼───────┼───────┼───────┼───────┼─────────────────┤
+│ base_number  │ VARCHAR     │ B00001                        │ B03257               │ 1091          │       │       │       │       │       │  1097 │ 0.0%            │
+│ base_name    │ VARCHAR     │ #1 MEXICALY CAR SERVICES CORP │ ZYT EXPRESS CORP.    │ 1064          │       │       │       │       │       │  1097 │ 0.0%            │
+│ dba          │ VARCHAR     │ 15TH AVENUE CAR SERVICE       │ YES CAR SERVICE      │ 216           │       │       │       │       │       │  1097 │ 80.04%          │
+│ dba_category │ VARCHAR     │ juno                          │ via                  │ 5             │       │       │       │       │       │  1097 │ 0.0%            │
+│ filename     │ VARCHAR     │ .\data\fhv_bases.csv          │ .\data\fhv_bases.csv │ 1             │       │       │       │       │       │  1097 │ 0.0%            │
+└──────────────┴─────────────┴───────────────────────────────┴──────────────────────┴───────────────┴───────┴───────┴───────┴───────┴───────┴───────┴─────────────────┘
+
+Columns / final name / data type :
+	base_number /	base_number	/ VARCHAR
+	base_name	/ 	base_name	/ VARCHAR
+	dba			/	dba			/ VARCHAR
+	dba_category	/	dba_category	/ VARCHAR
+	filename	/	filename	/ VARCHAR
+
+Issues to address:
+	No duplicate in base_number; Different base_number may have same name, which is acceptable
+	this table is in good shape
+	
+	
+summarize fhv_tripdata;
+┌────────────────────────┬─────────────┬──────────────────────────────────────────┬──────────────────────────────────────────┬───────────────┬────────────────────┬───────────────────┬────────────────────┬────────────────────┬───────────────────┬──────────┬─────────────────┐
+│      column_name       │ column_type │                   min                    │                   max                    │ approx_unique │        avg         │        std        │        q25         │        q50         │        q75        │  count   │ null_percentage │
+│        varchar         │   varchar   │                 varchar                  │                 varchar                  │    varchar    │      varchar       │      varchar      │      varchar       │      varchar       │      varchar      │  int64   │     varchar     │
+├────────────────────────┼─────────────┼──────────────────────────────────────────┼──────────────────────────────────────────┼───────────────┼────────────────────┼───────────────────┼────────────────────┼────────────────────┼───────────────────┼──────────┼─────────────────┤
+│ dispatching_base_num   │ VARCHAR     │ B00001                                   │ b03340                                   │ 790           │                    │                   │                    │                    │                   │ 29750730 │ 0.0%            │
+│ pickup_datetime        │ TIMESTAMP   │ 2020-01-01 00:00:00                      │ 2021-12-31 23:59:52                      │ 19736991      │                    │                   │                    │                    │                   │ 29750730 │ 0.0%            │
+│ dropOff_datetime       │ TIMESTAMP   │ 2020-01-01 00:00:36                      │ 2050-02-05 11:30:00                      │ 20083983      │                    │                   │                    │                    │                   │ 29750730 │ 0.0%            │
+│ PUlocationID           │ DOUBLE      │ 1.0                                      │ 265.0                                    │ 263           │ 214.15644534053874 │ 77.6671575257024  │ 173.33532211860617 │ 264.0              │ 264.0             │ 29750730 │ 52.7%           │
+│ DOlocationID           │ DOUBLE      │ 1.0                                      │ 265.0                                    │ 264           │ 143.9575131665722  │ 83.33593283311102 │ 70.90693460013787  │ 144.45965947534967 │ 223.9469881350256 │ 29750730 │ 9.33%           │
+│ SR_Flag                │ INTEGER     │                                          │                                          │ 0             │                    │                   │                    │                    │                   │ 29750730 │ 100.0%          │
+│ Affiliated_base_number │ VARCHAR     │                                          │  B02875                               │ 1664          │                    │                   │                    │                    │                   │ 29750730 │ 0.1%            │
+│ filename               │ VARCHAR     │ .\data\taxi\fhv_tripdata_2020-01.parquet │ .\data\taxi\fhv_tripdata_2021-12.parquet │ 24            │                    │                   │                    │                    │                   │ 29750730 │ 0.0%            │
+└────────────────────────┴─────────────┴──────────────────────────────────────────┴──────────────────────────────────────────┴───────────────┴────────────────────┴───────────────────┴────────────────────┴────────────────────┴───────────────────┴──────────┴─────────────────┘
+
+Columns / final name / data type (no change needed) :
+	dispatching_base_num	/	dispatching_base_num	/	VARCHAR
+	pickup_datetime		/	pickup_datetime		/	TIMESTAMP
+	dropOff_datetime	/	dropoff_datetime	/	TIMESTAMP		# change Off to off
+	PUlocationID		/	PULocationID		/	double			# change location to Location
+	DOlocationID		/	DOLocationID		/	double			# change location to Location
+	SR_Flag: all Null, drop!!!!
+	Affiliated_base_number	/	Affiliated_base_number	/ VARCHAR
+	filename			/	filename	/	VARCHAR
+	
+Issues to address:
+	There are duplicated rows in thi table, drop them!
+	SR_Flag is the column of all NULL to drop.
+	dispatching_base_num and Affiliated_base_number should match base_number in table fhv_bases (from B00001 to B03257, all UPPER B), convert to all UPPERCASE;
+	drop columns outside this range (there is a row with base_number 5860829)
+	
+
+
+summarize fhvhv_tripdata;
+┌──────────────────────┬─────────────┬────────────────────────────────────────────┬────────────────────────────────────────────┬───────────────┬─────────────────────┬────────────────────┬─────────────────────┬────────────────────┬────────────────────┬───────────┬─────────────────┐
+│     column_name      │ column_type │                    min                     │                    max                     │ approx_unique │         avg         │        std         │         q25         │        q50         │        q75         │   count   │ null_percentage │
+│       varchar        │   varchar   │                  varchar                   │                  varchar                   │    varchar    │       varchar       │      varchar       │       varchar       │      varchar       │      varchar       │   int64   │     varchar     │
+├──────────────────────┼─────────────┼────────────────────────────────────────────┼────────────────────────────────────────────┼───────────────┼─────────────────────┼────────────────────┼─────────────────────┼────────────────────┼────────────────────┼───────────┼─────────────────┤
+│ hvfhs_license_num    │ VARCHAR     │ HV0003                                     │ HV0005                                     │ 3             │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ dispatching_base_num │ VARCHAR     │ B02395                                     │ B03406                                     │ 33            │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ originating_base_num │ VARCHAR     │ B00446                                     │ B03406                                     │ 48            │                     │                    │                     │                    │                    │ 317906523 │ 27.86%          │
+│ request_datetime     │ TIMESTAMP   │ 2019-12-31 22:59:17                        │ 2021-12-31 23:59:25                        │ 59257742      │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ on_scene_datetime    │ TIMESTAMP   │ 2019-12-31 23:46:18                        │ 2021-12-31 23:59:41                        │ 56882437      │                     │                    │                     │                    │                    │ 317906523 │ 27.83%          │
+│ pickup_datetime      │ TIMESTAMP   │ 2020-01-01 00:00:00                        │ 2021-12-31 23:59:59                        │ 59658219      │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ dropoff_datetime     │ TIMESTAMP   │ 2020-01-01 00:01:17                        │ 2022-01-01 02:11:14                        │ 58959607      │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ PULocationID         │ BIGINT      │ 1                                          │ 265                                        │ 264           │ 136.58665678904612  │ 76.01935043244562  │ 72                  │ 138                │ 209                │ 317906523 │ 0.0%            │
+│ DOLocationID         │ BIGINT      │ 1                                          │ 265                                        │ 265           │ 140.07602201984386  │ 78.29908731045342  │ 73                  │ 140                │ 215                │ 317906523 │ 0.0%            │
+│ trip_miles           │ DOUBLE      │ 0.0                                        │ 1310.51                                    │ 102192        │ 4.7341753896886365  │ 5.357229348059407  │ 1.6117244529660937  │ 2.948818109638736  │ 5.828866169642429  │ 317906523 │ 0.0%            │
+│ trip_time            │ BIGINT      │ 0                                          │ 240764                                     │ 18325         │ 1063.7564822977854  │ 740.4507940292822  │ 564                 │ 877                │ 1351               │ 317906523 │ 0.0%            │
+│ base_passenger_fare  │ DOUBLE      │ -294.86                                    │ 8157.74                                    │ 51244         │ 20.02702073577229   │ 16.53154949078863  │ 9.686489293114445   │ 15.399539921830932 │ 24.732643987246814 │ 317906523 │ 0.0%            │
+│ tolls                │ DOUBLE      │ 0.0                                        │ 189.68                                     │ 6838          │ 0.8694189170971629  │ 3.373284192159036  │ 0.0                 │ 0.0                │ 0.0                │ 317906523 │ 0.0%            │
+│ bcf                  │ DOUBLE      │ 0.0                                        │ 203.96                                     │ 2778          │ 0.5893834575119243  │ 0.5433162695207076 │ 0.26496650823472834 │ 0.4323971687330497 │ 0.7234470015175529 │ 317906523 │ 0.0%            │
+│ sales_tax            │ DOUBLE      │ 0.0                                        │ 724.08                                     │ 5835          │ 1.7058225133871634  │ 1.3980644677022356 │ 0.8174845851099392  │ 1.3124366152877114 │ 2.1517422796506187 │ 317906523 │ 0.0%            │
+│ congestion_surcharge │ DOUBLE      │ 0.0                                        │ 13.75                                      │ 11            │ 0.9695637434278126  │ 1.3136995534999447 │ 0.0                 │ 0.0                │ 2.75               │ 317906523 │ 0.0%            │
+│ airport_fee          │ DOUBLE      │ 0.0                                        │ 10.0                                       │ 17            │ 0.14756373707747952 │ 0.5926551253463013 │ 0.0                 │ 0.0                │ 0.0                │ 317906523 │ 56.56%          │
+│ tips                 │ DOUBLE      │ 0.0                                        │ 1000.0                                     │ 9114          │ 0.7023282403985304  │ 2.4055239010470504 │ 0.0                 │ 0.0                │ 0.0                │ 317906523 │ 0.0%            │
+│ driver_pay           │ DOUBLE      │ -2035.92                                   │ 4894.62                                    │ 39593         │ 16.11385083537085   │ 13.16630086511975  │ 7.749386616243441   │ 12.505253875986499 │ 20.274145997573594 │ 317906523 │ 0.0%            │
+│ shared_request_flag  │ VARCHAR     │ N                                          │ Y                                          │ 2             │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ shared_match_flag    │ VARCHAR     │ N                                          │ Y                                          │ 2             │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ access_a_ride_flag   │ VARCHAR     │                                            │ N                                          │ 2             │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ wav_request_flag     │ VARCHAR     │ N                                          │ Y                                          │ 2             │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ wav_match_flag       │ VARCHAR     │ N                                          │ Y                                          │ 2             │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+│ filename             │ VARCHAR     │ .\data\taxi\fhvhv_tripdata_2020-01.parquet │ .\data\taxi\fhvhv_tripdata_2021-12.parquet │ 24            │                     │                    │                     │                    │                    │ 317906523 │ 0.0%            │
+├──────────────────────┴─────────────┴────────────────────────────────────────────┴────────────────────────────────────────────┴───────────────┴─────────────────────┴────────────────────┴─────────────────────┴────────────────────┴────────────────────┴───────────┴─────────────────┤
+│ 25 rows                                                                                                                                                                                                                                                                    12 columns │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Columns / final name / data type:
+	hvfhs_license_num	/	hvfhs_license_num	/ VARCHAR
+	dispatching_base_num	/ dispatching_base_num	/ VARCHAR
+	originating_base_num	/	originating_base_num	/	VARCHAR
+	request_datetime	/	request_datetime	/	TIMESTAMP
+	on_scene_datetime	/	on_scene_datetime	/	TIMESTAMP	
+	pickup_datetime	/	pickup_datetime	/	TIMESTAMP
+	dropoff_datetime	/	dropoff_datetime	/	TIMESTAMP
+	PULocationID	/	PULocationID	/	BIGINT			
+	DOLocationID	/	DOLocationID	/	BIGINT			
+	trip_miles		/	trip_miles		/   double
+	trip_time		/	trip_time		/	BIGINT
+	base_passenger_fare	/	base_passenger_fare	/ double
+	tolls	/	tolls	/	double
+	bcf		/	bcf		/	double
+	sales_tax	/	sales_tax	/	double
+	congestion_surcharge	/	congestion_surcharge	/	double
+	airport_fee	/	airport_fee	/	double
+	tips	/	tips	/	double
+	driver_pay	/	driver_pay	/	double
+	shared_request_flag	/	shared_request_flag	/	BOOLEAN		#change data type
+	shared_match_flag	/	shared_match_flag	/	BOOLEAN		#change data type
+	access_a_ride_flag	/	access_a_ride_flag	/	BOOLEAN		#change data type, assume ' ' means Y for now
+	wav_request_flag	/	wav_request_flag	/	BOOLEAN		#change data type
+	wav_match_flag		/	wav_match_flag		/	BOOLEAN		#change data type
+	filename			/	filename			/	VARCHAR
+	
+Issues to address:
+	This table is too big to find duplicate as DuckDB run out of memory, what should I do?
+	base_passenger_fare: There are quite a lot (366697) of negative value, why? Keep it there for now until finding out reason;
+	driver_pay: There are quite a lot (12808) of netative value, why? Keep it there for now until finding out reason;
+
+	
+summarize green_tripdata;
+┌───────────────────────┬─────────────┬────────────────────────────────────────────┬────────────────────────────────────────────┬───────────────┬─────────────────────┬─────────────────────┬────────────────────┬────────────────────┬────────────────────┬─────────┬─────────────────┐
+│      column_name      │ column_type │                    min                     │                    max                     │ approx_unique │         avg         │         std         │        q25         │        q50         │        q75         │  count  │ null_percentage │
+│        varchar        │   varchar   │                  varchar                   │                  varchar                   │    varchar    │       varchar       │       varchar       │      varchar       │      varchar       │      varchar       │  int64  │     varchar     │
+├───────────────────────┼─────────────┼────────────────────────────────────────────┼────────────────────────────────────────────┼───────────────┼─────────────────────┼─────────────────────┼────────────────────┼────────────────────┼────────────────────┼─────────┼─────────────────┤
+│ VendorID              │ BIGINT      │ 1                                          │ 6                                          │ 4             │ 1.8877196762959916  │ 0.31799681199355073 │ 2                  │ 2                  │ 2                  │ 2802931 │ 0.0%            │
+│ lpep_pickup_datetime  │ TIMESTAMP   │ 2008-12-31 19:16:53                        │ 2041-08-17 16:24:38                        │ 2271464       │                     │                     │                    │                    │                    │ 2802931 │ 0.0%            │
+│ lpep_dropoff_datetime │ TIMESTAMP   │ 2008-12-31 19:34:36                        │ 2041-08-17 16:27:20                        │ 2264826       │                     │                     │                    │                    │                    │ 2802931 │ 0.0%            │
+│ store_and_fwd_flag    │ VARCHAR     │ N                                          │ Y                                          │ 2             │                     │                     │                    │                    │                    │ 2802931 │ 33.56%          │
+│ RatecodeID            │ DOUBLE      │ 1.0                                        │ 99.0                                       │ 7             │ 1.1373783011264142  │ 0.7959764371549436  │ 1.0                │ 1.0                │ 1.0                │ 2802931 │ 33.56%          │
+│ PULocationID          │ BIGINT      │ 1                                          │ 265                                        │ 261           │ 108.59650594324299  │ 70.63186407475277   │ 55                 │ 78                 │ 166                │ 2802931 │ 0.0%            │
+│ DOLocationID          │ BIGINT      │ 1                                          │ 265                                        │ 263           │ 130.3306959750347   │ 76.6071859958688    │ 66                 │ 128                │ 196                │ 2802931 │ 0.0%            │
+│ passenger_count       │ DOUBLE      │ 0.0                                        │ 48.0                                       │ 12            │ 1.2844710331040268  │ 0.9354789835832145  │ 1.0                │ 1.0                │ 1.0                │ 2802931 │ 33.56%          │
+│ trip_distance         │ DOUBLE      │ -33.69                                     │ 334303.19                                  │ 7094          │ 66.96588865369887   │ 2714.7753127428186  │ 1.2028081758567688 │ 2.374599374958285  │ 5.245184861681034  │ 2802931 │ 0.0%            │
+│ fare_amount           │ DOUBLE      │ -300.0                                     │ 2109.0                                     │ 8525          │ 18.186305228350424  │ 14.735183773098015  │ 7.98845377482586   │ 13.897230583906545 │ 23.49363345420237  │ 2802931 │ 0.0%            │
+│ extra                 │ DOUBLE      │ -5.5                                       │ 27.15                                      │ 159           │ 0.7569701858518935  │ 1.147028650592237   │ 0.0                │ 0.0                │ 1.0                │ 2802931 │ 0.0%            │
+│ mta_tax               │ DOUBLE      │ -0.5                                       │ 3.55                                       │ 7             │ 0.3274322557351572  │ 0.24002135059532276 │ 0.0                │ 0.5                │ 0.5                │ 2802931 │ 0.0%            │
+│ tip_amount            │ DOUBLE      │ -86.0                                      │ 641.2                                      │ 2720          │ 1.219120238778645   │ 2.336715967217624   │ 0.0                │ 0.0                │ 2.402664753293747  │ 2802931 │ 0.0%            │
+│ tolls_amount          │ DOUBLE      │ -6.12                                      │ 96.12                                      │ 280           │ 0.4756417621412023  │ 1.773018082216072   │ 0.0                │ 0.0                │ 0.0                │ 2802931 │ 0.0%            │
+│ ehail_fee             │ INTEGER     │                                            │                                            │ 0             │                     │                     │                    │                    │                    │ 2802931 │ 100.0%          │
+│ improvement_surcharge │ DOUBLE      │ -0.3                                       │ 0.3                                        │ 3             │ 0.29499523891260315 │ 0.04333445938539535 │ 0.3                │ 0.3                │ 0.3                │ 2802931 │ 0.0%            │
+│ total_amount          │ DOUBLE      │ -300.8                                     │ 2113.55                                    │ 10914         │ 21.60056697791443   │ 16.25598053003645   │ 10.125462856131541 │ 17.3237511832619   │ 27.465189213974043 │ 2802931 │ 0.0%            │
+│ payment_type          │ DOUBLE      │ 1.0                                        │ 5.0                                        │ 5             │ 1.4430137020138207  │ 0.5196808636713923  │ 1.0                │ 1.0                │ 2.0                │ 2802931 │ 33.56%          │
+│ trip_type             │ DOUBLE      │ 1.0                                        │ 2.0                                        │ 2             │ 1.0301539621409501  │ 0.1710108663562119  │ 1.0                │ 1.0                │ 1.0                │ 2802931 │ 33.56%          │
+│ congestion_surcharge  │ DOUBLE      │ -2.75                                      │ 2.75                                       │ 6             │ 0.5384841224283553  │ 1.0912419070636579  │ 0.0                │ 0.0                │ 0.0                │ 2802931 │ 33.56%          │
+│ filename              │ VARCHAR     │ .\data\taxi\green_tripdata_2020-01.parquet │ .\data\taxi\green_tripdata_2021-12.parquet │ 24            │                     │                     │                    │                    │                    │ 2802931 │ 0.0%            │
+├───────────────────────┴─────────────┴────────────────────────────────────────────┴────────────────────────────────────────────┴───────────────┴─────────────────────┴─────────────────────┴────────────────────┴────────────────────┴────────────────────┴─────────┴─────────────────┤
+│ 21 rows                                                                                                                                                                                                                                                                   12 columns │
+└──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Columns / final name / data type:
+	VendorID	/	VendorID	/ BIGINT
+	lpep_pickup_datetime	/	lpep_pickup_datetime	/	TIMESTAMP
+	lpep_dropoff_datetime	/	lpep_dropoff_datetime	/	TIMESTAMP	
+	store_and_fwd_flag	/	store_and_fwd_flag	/	BOOLEAN		#change data type
+	RatecodeID	/	RatecodeID	/	DOUBLE
+	PULocationID	/	PULocationID	/	BIGINT			
+	DOLocationID	/	DOLocationID	/	BIGINT
+	passenger_count	/	passenger_count	/	double
+	trip_distance		/	trip_distance		/   double
+	fare_amount			/	fare_amount			/	double
+	extra				/	extra				/	double
+	mta_tax		/	mta_tax	/	double
+	tip_amount	/	tip_amount	/	double
+	tolls_amount	/	tolls_amount	/	double
+	ehail_fee: all Null, drop!!!!
+	improvement_surcharge	/	improvement_surcharge	/	double
+	total_amount	/	total_amount	/	double
+	payment_type	/	payment_type	/	double
+	trip_type		/	trip_type		/	double
+	congestion_surcharge	/	congestion_surcharge	/	double
+	filename	/	filename	/	VARCHAR
+
+Issues to address:
+	There are duplicated rows in thi table, drop them!
+	lpep_pickup_datetime and lpep_dropoff_datetime: 1 rows in 2041, drop it!
+	trip_distance: There are negative value, drop them!
+	fare_amount: There are negative value, but none from negative trip_distance. Keep for now since I'm not sure the meaning (refund?)
+	extra: There are negative value, According to data description, only +0.5 or +1.0 exist, drop them!
+	mta_tax: There are negative value (-0.5 only), drop them! (I don't think NYC will give your tax back)
+	tip_amount: There are negative value, drop them! (tip is what customer gives, not receives)
+	tolls_amount: There are 4 negative value, drop them! (tolls stations never give money back!)
+	ehail_fee is another column of all NULL to drop.
+	improvement_surcharge: 3 different values: 0, 0.3, -0.3. According to data description, it is reasonable to believe that -0.3 is the typo of 0.3
+	total amount: There are negative value, most are affiliated with negative fare_amount. Since I keep netative fare_amount, keep this as well.
+	congestion_surcharge: There are a few negative value, reason to believe it is type of the positive, turn -2.75 to 2.75, -2.5 to 2.5
+	
+	
+
+summarize yellow_tripdata;
+┌───────────────────────┬─────────────┬─────────────────────────────────────────────┬─────────────────────────────────────────────┬───────────────┬─────────────────────┬────────────────────┬───────────────────────┬────────────────────┬────────────────────┬──────────┬─────────────────┐
+│      column_name      │ column_type │                     min                     │                     max                     │ approx_unique │         avg         │        std         │          q25          │        q50         │        q75         │  count   │ null_percentage │
+│        varchar        │   varchar   │                   varchar                   │                   varchar                   │    varchar    │       varchar       │      varchar       │        varchar        │      varchar       │      varchar       │  int64   │     varchar     │
+├───────────────────────┼─────────────┼─────────────────────────────────────────────┼─────────────────────────────────────────────┼───────────────┼─────────────────────┼────────────────────┼───────────────────────┼────────────────────┼────────────────────┼──────────┼─────────────────┤
+│ VendorID              │ BIGINT      │ 1                                           │ 6                                           │ 4             │ 1.7000889774523251  │ 0.5204161562420696 │ 1                     │ 2                  │ 2                  │ 55553400 │ 0.0%            │
+│ tpep_pickup_datetime  │ TIMESTAMP   │ 2002-12-31 23:06:55                         │ 2098-09-11 02:23:31                         │ 28632612      │                     │                    │                       │                    │                    │ 55553400 │ 0.0%            │
+│ tpep_dropoff_datetime │ TIMESTAMP   │ 2002-12-31 23:08:03                         │ 2098-09-11 02:52:04                         │ 28664808      │                     │                    │                       │                    │                    │ 55553400 │ 0.0%            │
+│ passenger_count       │ DOUBLE      │ 0.0                                         │ 112.0                                       │ 12            │ 1.445600840090493   │ 1.0698320059403459 │ 1.0                   │ 1.0                │ 1.278572522962496  │ 55553400 │ 4.12%           │
+│ trip_distance         │ DOUBLE      │ -30.62                                      │ 351613.36                                   │ 11131         │ 5.416063662529861   │ 564.0959770120058  │ 1.0290263924190732    │ 1.744275865969689  │ 3.178495051928792  │ 55553400 │ 0.0%            │
+│ RatecodeID            │ DOUBLE      │ 1.0                                         │ 99.0                                        │ 7             │ 1.0706922091684747  │ 1.549702981323039  │ 1.0                   │ 1.0                │ 1.0                │ 55553400 │ 4.12%           │
+│ store_and_fwd_flag    │ VARCHAR     │ N                                           │ Y                                           │ 2             │                     │                    │                       │                    │                    │ 55553400 │ 4.12%           │
+│ PULocationID          │ BIGINT      │ 1                                           │ 265                                         │ 264           │ 164.5053467114524   │ 66.55581358298667  │ 122                   │ 162                │ 234                │ 55553400 │ 0.0%            │
+│ DOLocationID          │ BIGINT      │ 1                                           │ 265                                         │ 264           │ 161.82322343906944  │ 70.87792592280807  │ 109                   │ 162                │ 234                │ 55553400 │ 0.0%            │
+│ payment_type          │ BIGINT      │ 0                                           │ 5                                           │ 6             │ 1.211283107784582   │ 0.5308159379613598 │ 1                     │ 1                  │ 1                  │ 55553400 │ 0.0%            │
+│ fare_amount           │ DOUBLE      │ -1259.0                                     │ 998310.03                                   │ 12955         │ 13.141501256085132  │ 226.17477516900476 │ 6.500020729431146     │ 9.410243288558013  │ 14.517376243120616 │ 55553400 │ 0.0%            │
+│ extra                 │ DOUBLE      │ -27.0                                       │ 500000.8                                    │ 572           │ 1.0584380210752442  │ 67.09494056341688  │ 0.0                   │ 0.5                │ 2.5                │ 55553400 │ 0.0%            │
+│ mta_tax               │ DOUBLE      │ -0.55                                       │ 500000.5                                    │ 52            │ 0.5013798566784397  │ 67.08338586388163  │ 0.5                   │ 0.5                │ 0.5                │ 55553400 │ 0.0%            │
+│ tip_amount            │ DOUBLE      │ -493.22                                     │ 1393.56                                     │ 6820          │ 2.2261846729451387  │ 2.7373604024912543 │ 4.469349505221096e-07 │ 1.9866975012231978 │ 2.9587857629772243 │ 55553400 │ 0.0%            │
+│ tolls_amount          │ DOUBLE      │ -88.75                                      │ 956.55                                      │ 2754          │ 0.3522629709441149  │ 1.7234011492067756 │ 0.0                   │ 0.0                │ 0.0                │ 55553400 │ 0.0%            │
+│ improvement_surcharge │ DOUBLE      │ -0.3                                        │ 0.3                                         │ 3             │ 0.2973403914188729  │ 0.0392629833011972 │ 0.3                   │ 0.3                │ 0.3                │ 55553400 │ 0.0%            │
+│ total_amount          │ DOUBLE      │ -1260.3                                     │ 1000003.8                                   │ 23372         │ 19.1307823655614    │ 263.10276604554184 │ 11.357081648447561    │ 14.771218577501354 │ 20.611135136166652 │ 55553400 │ 0.0%            │
+│ congestion_surcharge  │ DOUBLE      │ -2.5                                        │ 3.0                                         │ 15            │ 2.281073378226323   │ 0.737101421632602  │ 2.5                   │ 2.5                │ 2.5                │ 55553400 │ 4.12%           │
+│ airport_fee           │ DOUBLE      │ -1.25                                       │ 1.25                                        │ 3             │ 0.07178240464845877 │ 0.2925337954950174 │ 0.0                   │ 0.0                │ 0.0                │ 55553400 │ 54.52%          │
+│ filename              │ VARCHAR     │ .\data\taxi\yellow_tripdata_2020-01.parquet │ .\data\taxi\yellow_tripdata_2021-12.parquet │ 24            │                     │                    │                       │                    │                    │ 55553400 │ 0.0%            │
+├───────────────────────┴─────────────┴─────────────────────────────────────────────┴─────────────────────────────────────────────┴───────────────┴─────────────────────┴────────────────────┴───────────────────────┴────────────────────┴────────────────────┴──────────┴─────────────────┤
+│ 20 rows                                                                                                                                                                                                                                                                        12 columns │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Columns / final name / data type:
+	VendorID	/	VendorID	/ BIGINT
+	tpep_pickup_datetime	/	tpep_pickup_datetime	/	TIMESTAMP
+	tpep_dropoff_datetime	/	tpep_dropoff_datetime	/	TIMESTAMP	
+	passenger_count	/	passenger_count	/	double
+	trip_distance		/	trip_distance		/   double
+	RatecodeID	/	RatecodeID	/	DOUBLE
+	store_and_fwd_flag	/	store_and_fwd_flag	/	BOOLEAN		#change data type
+	PULocationID	/	PULocationID	/	BIGINT			
+	DOLocationID	/	DOLocationID	/	BIGINT
+	payment_type	/	payment_type	/	double	
+	fare_amount			/	fare_amount			/	double
+	extra				/	extra				/	double
+	mta_tax		/	mta_tax	/	double
+	tip_amount	/	tip_amount	/	double
+	tolls_amount	/	tolls_amount	/	double
+	improvement_surcharge	/	improvement_surcharge	/	double
+	total_amount	/	total_amount	/	double
+	congestion_surcharge	/	congestion_surcharge	/	double
+	airport_fee	/	airport_fee	/	DOUBLE
+	filename	/	filename	/	VARCHAR
+	
+Issues to address:
+	There are duplicated rows in thi table, drop them!
+	tpep_pickup_datetime and tpep_dropoff_datetime: 4 rows in the future, drop them!
+	trip_distance: There are negative value, drop them!
+	fare_amount: There are negative value, but none from negative trip_distance. Keep for now since I'm not sure the meaning (refund?)
+	extra: There are negative value, According to data description, only +0.5 or +1.0 exist, drop them!
+	mta_tax: There are negative value (-0.5 only), drop them! (I don't think NYC will give your tax back)
+	tip_amount: There are negative value, drop them! (tip is what customer gives, not receives)
+	tolls_amount: There are 4 negative value, drop them! (tolls stations never give money back!)
+	improvement_surcharge: 3 different values: 0, 0.3, -0.3. According to data description, it is reasonable to believe that -0.3 is the typo of 0.3
+	total amount: There are negative value, most are affiliated with negative fare_amount. Since I keep netative fare_amount, keep this as well.
+	congestion_surcharge: There are a few negative value, reason to believe it is typo of the positive, turn negative to positive
