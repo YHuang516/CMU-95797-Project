@@ -30,4 +30,5 @@ cleaned as (
 	
 )
 
-select distinct * from cleaned
+--select distinct * from cleaned
+select * from cleaned

@@ -17,4 +17,5 @@ cleaned as (
 	FROM source	
 )
 
-select DISTINCT* from cleaned
+--select DISTINCT* from cleaned
+select * from cleaned
