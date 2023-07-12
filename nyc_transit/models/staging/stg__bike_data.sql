@@ -19,7 +19,9 @@ cleaned AS (
         COALESCE("end station name", end_station_name) AS end_station_name,
         COALESCE(CAST("end station latitude" AS DOUBLE), CAST(end_lat AS DOUBLE)) AS end_lat,
         COALESCE(CAST("end station longitude" AS DOUBLE), CAST(end_lng AS DOUBLE)) AS end_lng,
-        CAST(tripduration AS INT) AS tripduration,
+    --  CAST(tripduration AS INT) AS tripduration,
+    --  Calculate tripduration for missing ones
+        COALESCE(tripduration::int, datediff('second', started_at, ended_at)) tripduration,
         CAST(bikeid AS INT) AS bikeid,
         usertype,
         CAST("birth year" AS INT) AS birth_year,
