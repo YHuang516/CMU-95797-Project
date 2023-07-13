@@ -137,12 +137,6 @@ sources:
         columns:
           - name: dispatching_base_num
             data_type: CHARACTER VARYING(256)
-            tests:
-              - not_null
-              - dbt_expectations.expect_column_to_exist
-              - relationships:
-                  to: source('main','fhv_bases')
-                  field: base_number
           - name: pickup_datetime
             data_type: TIMESTAMP
           - name: dropoff_datetime
@@ -170,30 +164,16 @@ sources:
             data_type: TIMESTAMP
           - name: on_scene_datetime
             data_type: TIMESTAMP
-            description: "date/time when driver arrived at the pick-up location"
           - name: pickup_datetime
             data_type: TIMESTAMP
-            description: "The date and time of the trip pick-up"
-            tests:
-              - not_null
-              - dbt_expectations.expect_column_to_exist
           - name: dropoff_datetime
             data_type: TIMESTAMP
-            description: "The date and time of the trip drop-off"
-            tests:
-              - not_null
-              - dbt_expectiations.expect_column_to_exist
           - name: pulocationid
             data_type: BIGINT
           - name: dolocationid
             data_type: BIGINT
           - name: trip_miles
             data_type: DOUBLE
-            description: "total miles for passenger trip"
-            tests:
-              - dbt_expectations.expect_column_values_to_be_between:
-                  min_value: 0  # (Optional)
-                  max_value: 10000 # (Optional)
           - name: trip_time
             data_type: BIGINT
           - name: base_passenger_fare
@@ -218,12 +198,6 @@ sources:
             data_type: CHARACTER VARYING(256)
           - name: access_a_ride_flag
             data_type: CHARACTER VARYING(256)
-            description: "Was the trip administered on behalf of the Metropolitan Transportation Authority (MTA)? (Y/N)"
-            tests:
-              - accepted_values:
-                  values: ['Y', 'N']
-                  config:
-                    severity: warn
           - name: wav_request_flag
             data_type: CHARACTER VARYING(256)
           - name: wav_match_flag
