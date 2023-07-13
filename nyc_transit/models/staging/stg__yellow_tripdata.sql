@@ -16,8 +16,8 @@ cleaned as (
         trip_distance,
         RatecodeID,
         --CASE WHEN store_and_fwd_flag = 'Y' THEN TRUE ELSE FALSE END AS store_and_fwd_flag,
-        {{flag_to_bool("store_and_fwd_flag")}} as store_and_fwd_flag,P
-        ULocationID,
+        {{flag_to_bool("store_and_fwd_flag")}} as store_and_fwd_flag,
+        PULocationID,
         DOLocationID,
         payment_type,
         fare_amount,

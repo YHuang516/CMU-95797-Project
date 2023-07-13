@@ -10,7 +10,7 @@ cleaned as (
 
   SELECT 
         --UPPER(dispatching_base_num) AS dispatching_base_num,
-        dispatching_base_number,
+        dispatching_base_num,
         pickup_datetime,
         dropoff_datetime,
         --CAST(PUlocationID AS DOUBLE) AS PULocationID,

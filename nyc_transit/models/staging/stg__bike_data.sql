@@ -9,8 +9,8 @@ with source as (
 cleaned AS (
     
 	SELECT
-        COALESCE(CAST(starttime AS TIMESTAMP), CAST(started_at AS TIMESTAMP)) AS started_at,
-        COALESCE(CAST(stoptime AS TIMESTAMP), CAST(ended_at AS TIMESTAMP)) AS ended_at,
+        COALESCE(CAST(starttime AS TIMESTAMP), CAST(started_at AS TIMESTAMP)) AS started_at_ts,
+        COALESCE(CAST(stoptime AS TIMESTAMP), CAST(ended_at AS TIMESTAMP)) AS ended_at_ts,
         COALESCE("start station id", start_station_id) AS start_station_id,
         COALESCE("start station name", start_station_name) AS start_station_name,
         COALESCE(CAST("start station latitude" AS DOUBLE), CAST(start_lat AS DOUBLE)) AS start_lat,
@@ -21,7 +21,7 @@ cleaned AS (
         COALESCE(CAST("end station longitude" AS DOUBLE), CAST(end_lng AS DOUBLE)) AS end_lng,
     --  CAST(tripduration AS INT) AS tripduration,
     --  Calculate tripduration for missing ones
-        COALESCE(tripduration::int, datediff('second', started_at, ended_at)) tripduration,
+        COALESCE(tripduration::int, datediff('second', started_at_ts, ended_at_ts)) tripduration,
         CAST(bikeid AS INT) AS bikeid,
         usertype,
         CAST("birth year" AS INT) AS birth_year,
