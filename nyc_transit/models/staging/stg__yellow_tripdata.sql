@@ -15,12 +15,8 @@ cleaned as (
         passenger_count,
         trip_distance,
         RatecodeID,
-<<<<<<< HEAD
-        CASE WHEN store_and_fwd_flag = 'Y' THEN TRUE ELSE FALSE END AS store_and_fwd_flag,
-=======
         --CASE WHEN store_and_fwd_flag = 'Y' THEN TRUE ELSE FALSE END AS store_and_fwd_flag,
         {{flag_to_bool("store_and_fwd_flag")}} as store_and_fwd_flag,
->>>>>>> temp-branch
         PULocationID,
         DOLocationID,
         payment_type,
