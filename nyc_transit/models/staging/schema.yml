@@ -9,6 +9,7 @@ models:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: timestamp
+
         - name: ended_at_ts
           description: "End Time and Date"
           tests:
@@ -16,81 +17,95 @@ models:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: timestamp
+
         - name: start_station_id
           description: "Identifier for Start Station"
           tests:
             - dbt_expectations.expect_column_to_exist
+
         - name: start_station_name
           description: "Name of Start Station"
           tests:
             - dbt_expectations.expect_column_to_exist
+
         - name: start_lat
           description: "Latitude of Start Location"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+
         - name: start_lng
           description: "Longitude of Start Location"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+
         - name: end_station_id
           description: "Identifier for End Station"
           tests:
             - dbt_expectations.expect_column_to_exist
+
         - name: end_station_name
           description: "Name of End Station"
           tests:
             - dbt_expectations.expect_column_to_exist
+
         - name: end_lat
           description: "Latitude of End Location"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+
         - name: end_lng
           description: "Longitude of End Location"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+
         - name: tripduration
           description: "Duration of the Bike Trip in seconds"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: BIGINT
-            #Negative duration is something worth warning for
+            #Negative duration is worth warning for
             - dbt_expectations.expect_column_values_to_be_between:
                 min_value: 0
                 max_value: 100000000
                 config:
                   severity: warn
+
         - name: bikeid
           description: "Unique Identifier for the Bike"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: INTEGER
+
         - name: usertype
           description: "Type of User (Subscriber or Customer)"
           tests:
             - dbt_expectations.expect_column_to_exist
             - accepted_values:
                 values: ['Subscriber', 'Customer']
+
         - name: birth_year
           description: "Birth Year of the User"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: INTEGER
+            #Warning unreasonable birth year
             - dbt_expectations.expect_column_values_to_be_between:
                 min_value: 1907
-                max_value: 2021
+                max_value: 2023
                 config:
                   severity: warn
+
         - name: gender
           description: "Gender of the User"
           tests:
@@ -99,24 +114,29 @@ models:
                 column_type: INTEGER
             - accepted_values:
                 values: [0, 1, 2]
+
         - name: ride_id
           description: "Unique Identifier for the Ride"
           tests:
             - dbt_expectations.expect_column_to_exist
             - unique
+
         - name: rideable_type
           description: "Type of Rideable (e-bike or docked bike)"
           tests:
             - dbt_expectations.expect_column_to_exist
+
         - name: member_casual
           description: "Whether the User is a Member or Casual"
           tests:
             - dbt_expectations.expect_column_to_exist
             - accepted_values:
                 values: ['member','casual']
+
         - name: filename
           description: "Name of Source File"
           tests:
+            - not_null
             - dbt_expectations.expect_column_to_exist
     
     - name: stg__central_park_weather
@@ -127,13 +147,16 @@ models:
           tests:
             - not_null
             - dbt_expectations.expect_column_to_exist
-            - accepted_values:      # make sure it is central park station data
-                values: ['USW00094728']          
+            # make sure it is central park station data
+            - accepted_values:      
+                values: ['USW00094728']
+
         - name: name
           description: "Name of the Weather Station"
           tests:
             - not_null
             - dbt_expectations.expect_column_to_exist
+
         - name: date
           description: "Date of the Weather Data"
           tests:
@@ -141,49 +164,55 @@ models:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: date
+
         - name: awnd
           description: "Average Wind Speed"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+
         - name: prcp
           description: "Precipitation Amount"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+
         - name: snow
           description: "Snowfall Amount"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+
         - name: snwd
           description: "Snow Depth"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+
         - name: tmax
           description: "Maximum Temperature in F"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: INTEGER
+
         - name: tmin
           description: "Minimum Temperature in F"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: INTEGER
+
         - name: filename
           description: "File name of the source data"
           tests:
             - not_null
             - dbt_expectations.expect_column_to_exist
             
-
     - name: stg__daily_citi_bike_trip_counts_and_weather
       description: "Staging table for daily_citi_bike_trip_counts_and_weather"
       columns:
@@ -435,6 +464,8 @@ models:
           description: "The timestamp when the vehicle arrived on the scene for pickup"
           tests:
             - dbt_expectations.expect_column_to_exist
+            - dbt_expectations.expect_column_values_to_be_of_type:
+                column_type: TIMESTAMP
 
         - name: pickup_datetime
           description: "The timestamp when the passenger was picked up"
@@ -472,15 +503,24 @@ models:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+            #Negative milage should be warned
             - dbt_expectations.expect_column_values_to_be_between:
                   min_value: 0
                   max_value: 10000
+                  config:
+                    severity: warn
         - name: trip_time
           description: "The duration of the trip in seconds"
           tests:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: BIGINT
+            #Negative triptime should be warned
+            - dbt_expectations.expect_column_values_to_be_between:
+                  min_value: 0
+                  max_value: 1000000
+                  config:
+                    severity: warn
 
         - name: base_passenger_fare
           description: "The base fare of the trip charged to the passenger, excluding additional charges"
@@ -637,6 +677,13 @@ models:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+            #Negative passenger count should be warned, while 0 passenger is still possible
+            #100 people in one car? worth check
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: 0
+                max_value: 100
+                config:
+                  severity: warn
 
         - name: trip_distance
           description: "The distance of the trip in miles"
@@ -644,6 +691,12 @@ models:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+            #Negative distance should be warned
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: 0.0
+                max_value: 1000000.0
+                config:
+                  severity: warn
 
         - name: fare_amount
           description: "The amount charged for the trip fare"
@@ -754,6 +807,13 @@ models:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+            #Negative passenger count should be warned, while 0 passenger is still possible
+            #100 people in one car? worth check
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: 0
+                max_value: 100
+                config:
+                  severity: warn
 
         - name: trip_distance
           description: "The distance of the trip in miles"
@@ -761,6 +821,12 @@ models:
             - dbt_expectations.expect_column_to_exist
             - dbt_expectations.expect_column_values_to_be_of_type:
                 column_type: DOUBLE
+            #Negative distance should be warned
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: 0.0
+                max_value: 1000000.0
+                config:
+                  severity: warn
 
         - name: ratecodeid
           description: "The rate code ID associated with the trip"
@@ -865,8 +931,3 @@ models:
           tests:
             - dbt_expectations.expect_column_to_exist
             - not_null
-
-
-
-
-       
