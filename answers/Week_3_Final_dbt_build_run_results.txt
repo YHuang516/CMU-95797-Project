@@ -1,10 +1,35 @@
-04:45:12  Finished running 171 tests, 8 view models in 0 hours 0 minutes and 15.54 seconds (15.54s).
-04:45:12
-04:45:12  Completed with 1 warning:
-04:45:12
-04:45:12  Warning in test source_accepted_values_main_fhvhv_tripdata_access_a_ride_flag__Y__N (models\sources.yml)
-04:45:12  Got 1 result, configured to warn if != 0
-04:45:12
-04:45:12    compiled Code at target\compiled\nyc_transit\models\sources.yml\source_accepted_values_main_fh_45501288d93333d4ff2566ce19ee26a1.sql
-04:45:12
-04:45:12  Done. PASS=178 WARN=1 ERROR=0 SKIP=0 TOTAL=179
+02:09:48  Finished running 440 tests, 8 view models in 0 hours 0 minutes and 49.82 seconds (49.82s).
+02:09:48  
+02:09:48  Completed with 6 warnings:
+02:09:48
+02:09:48  Warning in test source_accepted_values_main_fhvhv_tripdata_access_a_ride_flag__Y__N (models\sources.yml)
+02:09:48  Got 1 result, configured to warn if != 0
+02:09:48
+02:09:48    compiled Code at target\compiled\nyc_transit\models\sources.yml\source_accepted_values_main_fh_45501288d93333d4ff2566ce19ee26a1.sql
+02:09:48
+02:09:48  Warning in test dbt_expectations_expect_column_values_to_be_between_stg__bike_data_birth_year__2023__1907 (models\staging\schema.yml)
+02:09:48  Got 8932 results, configured to warn if != 0
+02:09:48
+02:09:48    compiled Code at target\compiled\nyc_transit\models\staging\schema.yml\dbt_expectations_expect_column_42d0396928310fef540e1bc112b0ed4b.sql  
+02:09:48
+02:09:48  Warning in test dbt_expectations_expect_column_values_to_be_between_stg__bike_data_tripduration__100000000__0 (models\staging\schema.yml)     
+02:09:48  Got 8670 results, configured to warn if != 0
+02:09:48
+02:09:48    compiled Code at target\compiled\nyc_transit\models\staging\schema.yml\dbt_expectations_expect_column_7f98a697233bcb1e5d22073eedb06dfd.sql  
+02:09:48
+02:09:48  Warning in test dbt_expectations_expect_column_values_to_be_between_stg__green_tripdata_trip_distance__1000000_0__0_0 (models\staging\schema.yml)
+02:09:48  Got 822 results, configured to warn if != 0
+02:09:48
+02:09:48    compiled Code at target\compiled\nyc_transit\models\staging\schema.yml\dbt_expectations_expect_column_ff9a13a586b13f2d05dc9d9fad9342bd.sql  
+02:09:48
+02:09:48  Warning in test dbt_expectations_expect_column_values_to_be_between_stg__yellow_tripdata_passenger_count__100__0 (models\staging\schema.yml)  
+02:09:48  Got 1 result, configured to warn if != 0
+02:09:48
+02:09:48    compiled Code at target\compiled\nyc_transit\models\staging\schema.yml\dbt_expectations_expect_column_af7d29e014fc078c52743f14f0387572.sql  
+02:09:48
+02:09:48  Warning in test dbt_expectations_expect_column_values_to_be_between_stg__yellow_tripdata_trip_distance__1000000_0__0_0 (models\staging\schema.yml)
+02:09:48  Got 2338 results, configured to warn if != 0
+02:09:48
+02:09:48    compiled Code at target\compiled\nyc_transit\models\staging\schema.yml\dbt_expectations_expect_column_6616a99306313a6b645bca893eff642c.sql
+02:09:48
+02:09:48  Done. PASS=442 WARN=6 ERROR=0 SKIP=0 TOTAL=448
