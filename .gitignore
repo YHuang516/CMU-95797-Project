@@ -161,3 +161,9 @@ cython_debug/
 
 # project specific
 data/
+*.db
+*.duckdb
+*.wal
+.user.yml
+dbt_packages/
+logs/
