@@ -1,0 +1,108 @@
+**count & total time of bikes trips by weekday:
+SELECT
+    weekday(started_at_ts) as weekday,
+    count(*) as total_trips,
+    sum(duration_sec) as total_trip_duration_secs
+FROM "nyc_transit_data_sets"."main"."mart__fact_all_bike_trips"
+GROUP BY all
+┌─────────┬─────────────┬──────────────────────────┐
+│ weekday │ total_trips │ total_trip_duration_secs │
+│  int64  │    int64    │          int128          │
+├─────────┼─────────────┼──────────────────────────┤
+│       0 │     6394986 │               8953087887 │
+│       1 │     6238393 │               7103460966 │
+│       2 │     6828035 │               7544669274 │
+│       3 │     6971584 │               7677072018 │
+│       4 │     6733338 │               7510389063 │
+│       5 │     6798425 │               7953642067 │
+│       6 │     7203547 │              10226279354 │
+└─────────┴─────────────┴──────────────────────────┘
+
+**total number of trips ending in service_zones 'Airports' or 'EWR'
+SELECT
+    count(*) AS total_trips_to_airport
+FROM 
+    "nyc_transit_data_sets"."main"."mart__fact_all_taxi_trips" AS taxi_trips
+JOIN 
+    "nyc_transit_data_sets"."main"."mart__dim_locations" AS locations
+ON 
+    CAST(taxi_trips.DOlocationID AS INT) = locations.LocationID
+WHERE 
+    locations.service_zone IN ('Airports', 'EWR')
+┌────────────────────────┐
+│ total_trips_to_airport │
+│         int64          │
+├────────────────────────┤
+│               10624474 │
+└────────────────────────┘
+
+**by weekday, count of total trips, trips starting and ending in a different borough, and percentage w/ different start/end
+**First query: skip Null in PUlocationID and DOlocationID
+SELECT
+    weekday(taxi_trips.pickup_datetime) AS weekday,
+    count(*) AS total_trips,
+    sum(CASE WHEN pickup_locations.Borough != dropoff_locations.Borough THEN 1 ELSE 0 END) AS different_borough_trips,
+    (different_borough_trips * 100.0 / count(*)) AS percentage_diff_borough
+FROM 
+    "nyc_transit_data_sets"."main"."mart__fact_all_taxi_trips" AS taxi_trips
+JOIN 
+    "nyc_transit_data_sets"."main"."mart__dim_locations" AS pickup_locations
+ON 
+    CAST(taxi_trips.PUlocationID AS INT) = pickup_locations.LocationID
+JOIN 
+    "nyc_transit_data_sets"."main"."mart__dim_locations" AS dropoff_locations
+ON 
+    CAST(taxi_trips.DOlocationID AS INT) = dropoff_locations.LocationID
+GROUP BY 
+    weekday(taxi_trips.pickup_datetime)
+┌─────────┬─────────────┬─────────────────────────┬─────────────────────────┐
+│ weekday │ total_trips │ different_borough_trips │ percentage_diff_borough │
+│  int64  │    int64    │         int128          │         double          │
+├─────────┼─────────────┼─────────────────────────┼─────────────────────────┤
+│       0 │    52556457 │                15004622 │       28.54953103098255 │
+│       1 │    48741821 │                12759476 │      26.177676045382054 │
+│       2 │    51242343 │                12706468 │      24.796813057513784 │
+│       3 │    54986995 │                13697369 │       24.91019740213118 │
+│       4 │    57152142 │                14497145 │      25.365882174634855 │
+│       5 │    62727091 │                15903358 │      25.353252871235494 │
+│       6 │    62758921 │                16566035 │      26.396303084943096 │
+└─────────┴─────────────┴─────────────────────────┴─────────────────────────┘
+
+**Second query: Include Null in PUlocationID and DOlocationID
+WITH all_trips AS
+(SELECT
+    weekday(pickup_datetime) as weekday,
+    count(*) trips
+ FROM "nyc_transit_data_sets"."main"."mart__fact_all_taxi_trips" taxi_trips
+ GROUP BY ALL
+),
+
+inter_borough AS
+(SELECT
+    weekday(pickup_datetime) as weekday,
+    count(*) as inter_trips
+ FROM "nyc_transit_data_sets"."main"."mart__fact_all_taxi_trips" taxi_trips
+ JOIN "nyc_transit_data_sets"."main"."mart__dim_locations" PL on taxi_trips.PUlocationID = PL.LocationID
+ JOIN "nyc_transit_data_sets"."main"."mart__dim_locations" DL on taxi_trips.DOlocationID = DL.LocationID
+ WHERE PL.Borough != DL.Borough
+ GROUP BY ALL
+)
+
+SELECT all_trips.weekday,
+       all_trips.trips as total_trips,
+       inter_borough.inter_trips as different_borough_trips,
+       inter_borough.inter_trips * 100.0 / all_trips.trips as percentage_diff_borough
+FROM all_trips
+JOIN inter_borough on (all_trips.weekday = inter_borough.weekday);
+┌─────────┬─────────────┬─────────────────────────┬─────────────────────────┐
+│ weekday │ total_trips │ different_borough_trips │ percentage_diff_borough │
+│  int64  │    int64    │          int64          │         double          │
+├─────────┼─────────────┼─────────────────────────┼─────────────────────────┤
+│       0 │    54244978 │                15004622 │      27.660850005322153 │
+│       1 │    51105120 │                12759476 │      24.967118754441824 │
+│       2 │    53659100 │                12706468 │      23.679987178316445 │
+│       3 │    57472210 │                13697369 │      23.833029911325838 │
+│       4 │    59624829 │                14497145 │      24.313939751508553 │
+│       5 │    65198626 │                15903358 │       24.39216740549103 │
+│       6 │    64708721 │                16566035 │      25.600930978067083 │
+└─────────┴─────────────┴─────────────────────────┴─────────────────────────┘
