@@ -1,0 +1,5 @@
+Macros:
+Already use dbt macro for _flag cleaned up in earlier weeks
+
+Common Table Expressions
+Already use CTE to wrote query for inter-borough trips last week

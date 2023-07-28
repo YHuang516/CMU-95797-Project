@@ -1,3 +1,8 @@
+-- The key of this question is: We should only consider days without precipitation or snow
+-- when it was before precipitation and snow (that makes sense!) There were days of continuing
+-- precipitation or snow, it is wrong to simply include day before a weather day, that will include
+-- some of the rainning/snowing days into the "previous days"
+
 WITH 
 weather_days AS (
     SELECT 
